@@ -4,6 +4,8 @@ import {wait} from './wait'
 async function run(): Promise<void> {
   try {
     const ms: string = core.getInput('milliseconds')
+    const issue_assignee = core.getInput('issue_assignee').replace(/\s+/g, '').split(',')
+    core.info(issue_assignee)
     core.debug(`Waiting ${ms} milliseconds ...`)
 
     core.debug(new Date().toTimeString())
