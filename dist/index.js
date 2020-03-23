@@ -78,6 +78,11 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const ms = core.getInput('milliseconds');
+            const issueAssignees = core
+                .getInput('issueAssignees')
+                .replace(/\s+/g, '')
+                .split(',');
+            core.info(issueAssignees.toString());
             core.debug(`Waiting ${ms} milliseconds ...`);
             core.debug(new Date().toTimeString());
             yield wait_1.wait(parseInt(ms, 10));
